@@ -32,8 +32,6 @@ if [ -z "$CLIENTDNS" ]; then
     exit 1;
 fi
 
-
-
 if ! command -v wg &> /dev/null
 then
     echo "Please install wireguard-tools first"
@@ -50,7 +48,7 @@ if [ "$EUID" -ne 0 ]
 fi
 
 WORKDIR=$(mktemp -d)
-mount -t ramfs -o size=500m ramfs $WORKDIR
+mount -t ramfs -o size=2m ramfs $WORKDIR
 CLIENTKEY=$(wg genkey)
 CLIENTPUB=$(echo $CLIENTKEY | wg pubkey)
 PSKEY=$(wg genpsk)
