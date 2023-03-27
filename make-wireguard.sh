@@ -39,7 +39,7 @@ then
     echo "Please install wireguard-tools first"
     exit
 fi
-if ! command -v wg &> /dev/null
+if ! command -v qrencode &> /dev/null
 then
     echo "Please install qrencode"
     exit
